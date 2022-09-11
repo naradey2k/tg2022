@@ -2,7 +2,7 @@ from main import *
 import argparse
 import numpy as np
 
-gm = GenModel('data/philosophy.txt', 'gg.pth')
+gm = GenModel('data/philosophy.txt')
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model', type=str)
