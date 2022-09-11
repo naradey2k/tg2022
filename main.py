@@ -1,3 +1,4 @@
+import os
 import string
 import codecs
 import torch
@@ -6,6 +7,18 @@ from collections import Counter
 import time
 from torch import nn, optim
 import tqdm
+
+def set_seed(seed=42):
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    
+set_seed(2022)
 
 class Model(nn.Module):
     def __init__(self, n_vocab):
